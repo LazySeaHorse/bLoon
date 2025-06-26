@@ -70,27 +70,6 @@ The converter expects your Markdown to contain pairs of:
 1. A header (`#`, `##`, …, `######`) whose text is treated as a relative file path.  
 2. A fenced code block immediately following the header, whose contents become the file’s content.
 
-Example:
-
-```markdown
-## src/app.js
-```javascript
-console.log("Hello, world!");
-```
-
-### components/Button.tsx
-```typescript
-export const Button = () => <button>Click me</button>;
-```
-
-##### utils/helpers.py
-```python
-def greet(name):
-    return f"Hello, {name}!"
-```
-
-```
-
 - Header levels (1–6) are all supported.  
 - Language specifier (e.g., ```javascript) is ignored in output.  
 
