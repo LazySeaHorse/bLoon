@@ -89,6 +89,8 @@ def greet(name):
     return f"Hello, {name}!"
 ```
 
+```
+
 - Header levels (1–6) are all supported.  
 - Language specifier (e.g., ```javascript) is ignored in output.  
 
