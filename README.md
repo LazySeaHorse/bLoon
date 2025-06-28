@@ -9,8 +9,7 @@ Ever get a huge code dump from an LLM and have to manually create every single f
 
 That's what Bloon is for. It helps you shuttle your code between a **file tree** and a **single Markdown file**, making it way easier to work with Large Language Models.
 
-
-*(You should probably replace this with your own screenshot!)*
+![inflate](https://i.postimg.cc/50C9LX04/deflate.png)
 
 ## What's it do?
 
