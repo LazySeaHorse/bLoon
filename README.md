@@ -12,7 +12,7 @@ That's what Bloon is for. It helps you shuttle your code between a **file tree**
 <div style="display: flex; gap: 10px; align-items: center;">
   <img src="https://i.postimg.cc/7LcY53qt/inflate.png" alt="Image 1" width="400" />
   <img src="https://i.postimg.cc/50C9LX04/deflate.png" alt="Image 2" width="400" />
-  <img src="https://i.postimg.cc/VvPfRzrj/patch.png" alt="Image 3" width="400" />
+  <!-- <img src="https://i.postimg.cc/VvPfRzrj/patch.png" alt="Image 3" width="400" /> -->
 </div>
 
 ## What's it do?
