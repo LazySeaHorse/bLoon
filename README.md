@@ -1,96 +1,55 @@
-# bLoon
+# Bloon 🎈
 
-A simple Python Tkinter application that parses a Markdown file containing header + code-block pairs and creates a corresponding file tree structure on disk.
+A simple little GUI to make working with LLMs and codebases less of a headache.
 
----
+Ever get a huge code dump from an LLM and have to manually create every single file and folder? Or wanted to give an LLM your whole project for context without zipping it up?
 
-## Features
+That's what Bloon is for. It helps you shuttle your code between a **file tree** and a **single Markdown file**, making it way easier to work with Large Language Models.
 
-- Pick a Markdown file and an (empty) target directory via a GUI  
-- Parses headers (`# …` through `###### …`) as file paths  
-- Extracts the following fenced code block as file content  
-- Automatically creates nested directories  
-- Real-time progress logging and visual feedback  
-- Cross-platform (Windows, macOS, Linux)  
-- No external dependencies—uses only the Python standard library  
 
----
+*(You should probably replace this with your own screenshot!)*
 
-## Table of Contents
+## What's it do?
 
-1. [Getting Started](#getting-started)  
-2. [Usage](#usage)  
-3. [Markdown File Format](#markdown-file-format)  
-4. [Implementation Details](#implementation-details)  
-5. [License](#license)  
+Bloon has three main jobs:
 
----
+*   **Deflate:** "Packs" a whole folder of code into one big Markdown file. This is perfect for pasting into an LLM as context.
+*   **Inflate:** "Unpacks" that Markdown file and recreates the entire file and folder structure for you. It even `git init`s the folder and commits the new files so you're ready to go.
+*   **Apply Patch:** For a more advanced workflow. Give your LLM the "deflated" project, ask for changes as a `unified diff`, and paste the diff into this tab. Bloon will apply the changes to your local code using `git apply`.
 
 ## Getting Started
 
-### Prerequisites
+This is a simple Python script, so there's not much to it.
 
-- Python 3.6+ (includes `tkinter`, `re`, `pathlib`, `os`)  
+1.  **You'll need:**
+    *   Python 3
+    *   Tkinter (usually included, but on some Linux distros you might need to install it, e.g., `sudo apt-get install python3-tk`)
+    *   `git` installed and available in your PATH.
 
-### Installation
+2.  **Save the code** as something like `bloon.py`.
 
-1. Clone this repository or download the script.  
-2. Ensure the file is named `markdown_to_files.py`.
+3.  **Run it** from your terminal:
+    ```bash
+    python bloon.py
+    ```
 
-```bash
-git clone https://github.com/yourusername/markdown-to-file-tree.git
-cd markdown-to-file-tree
+That's it. The GUI should pop up, and you can start inflating and deflating your projects.
+
+## The Magic Format
+
+Bloon uses a simple Markdown structure that's easy for both humans and LLMs to read:
+
+```markdown
+## path/to/your/file.py
+```python
+# Your python code goes here
+print("Hello, world!")
 ```
 
----
+## another/file.js
+```javascript
+// Your javascript code
+console.log("Hello again!");
+```
 
-## Usage
-
-1. Run the application:
-
-   ```bash
-   python markdown_to_files.py
-   ```
-
-2. In the GUI:
-
-   - **Markdown File**: Click **Browse** and select your `.md` file.  
-   - **Target Directory**: Click **Browse** and choose an *empty* directory (it will refuse a non-empty directory).  
-   - Click **Convert** to start parsing and file creation.  
-
-3. Watch the **Progress** log and **Progress Bar** for real-time feedback.  
-4. On completion, you’ll get a popup indicating how many files were created.
-
----
-
-## Markdown File Format
-
-The converter expects your Markdown to contain pairs of:
-
-1. A header (`#`, `##`, …, `######`) whose text is treated as a relative file path.  
-2. A fenced code block immediately following the header, whose contents become the file’s content.
-
-- Header levels (1–6) are all supported.  
-- Language specifier (e.g., ```javascript) is ignored in output.  
-
----
-
-## Implementation Details
-
-- **GUI**: Built with `tkinter` and `ttk` for cross-platform look and feel.  
-- **Parsing**: Uses a single regex (`re.MULTILINE | re.DOTALL`) to locate `header → code block` pairs.  
-- **File System**:  
-  - Checks that the target directory is empty or non-existent.  
-  - Creates nested directories via `pathlib.Path.mkdir(parents=True, exist_ok=True)`.  
-- **Robustness**:  
-  - Continues on individual file write errors, logs failures.  
-  - Displays popups on critical errors or when no valid pairs are found.  
-- **Progress Feedback**:  
-  - Scrollable text area for detailed logs.  
-  - Indeterminate progress bar during conversion.
-
----
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+Simple, right? Now go make your LLM do the boring work for you.
