@@ -18,7 +18,7 @@ Bloon has three main jobs:
 
 *   **Deflate:** "Packs" a whole folder of code into one big Markdown file. This is perfect for pasting into an LLM as context.
 *   **Inflate:** "Unpacks" that Markdown file and recreates the entire file and folder structure for you. It even `git init`s the folder and commits the new files so you're ready to go.
-*   (ETA: soon™)) ~~**Apply Patch:** For a more advanced workflow. Give your LLM the "deflated" project, ask for changes as a `unified diff`, and paste the diff into this tab. Bloon will apply the changes to your local code using `git apply`.~~
+*   ETA: soon™ ~~**Apply Patch:** For a more advanced workflow. Give your LLM the "deflated" project, ask for changes as a `unified diff`, and paste the diff into this tab. Bloon will apply the changes to your local code using `git apply`.~~
 
 ## Getting Started
 
