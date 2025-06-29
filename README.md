@@ -3,7 +3,7 @@
 A simple little GUI to make working with LLMs and codebases less of a headache.
 
 > [!NOTE]
-> Coded to life in less than 10 minutes with some help from Claude 4 Opus
+> Coded to life with some help from Claude 4 Opus
 
 Ever get a huge code dump from an LLM and have to manually create every single file and folder? Or wanted to give an LLM your whole project for context without zipping it up?
 
